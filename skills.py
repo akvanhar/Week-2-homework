@@ -337,8 +337,34 @@ def adv_get_top_letter(input_string):
     Spaces do not count as letters.
 
     """
+    #initiallize empty dictionary
+    dictionary_of_letters = {}
 
-    return ''
+    #for each letter in the dictionary, count how many times it occurse
+    for letter in input_string:
+        if letter not in dictionary_of_letters and letter.isalpha():
+            dictionary_of_letters[letter] = 1
+        elif letter.isalpha():
+            dictionary_of_letters[letter] += 1
+        else:
+            continue
+
+    #turn the dictionary list into tuples
+    list_of_tuples = []
+
+    for key, value in dictionary_of_letters.items():
+        new_tuple = (value, key)
+        list_of_tuples.append(new_tuple)
+
+    #this is where I got stumped. I can find the max item, but I can't figure out how to do it if it's a tie.
+    max_item = max(list_of_tuples)
+    top_letter_list = []
+    top_letter_list.append(max_item)
+    for i in range(len(top_letter_list)):
+        top_letter_list = [top_letter_list[i][1]]
+
+    return top_letter_list
+
 
 def adv_alpha_sort_by_word_length(words):
     """    
@@ -355,7 +381,7 @@ def adv_alpha_sort_by_word_length(words):
         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
 
     """
-
+    #I ran out of time.
 
     return []
 
